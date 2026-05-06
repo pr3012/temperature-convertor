@@ -1,0 +1,10 @@
+services:
+  jboss-app:
+    image: my-jboss-images/pr3012/temp-con:v3
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    environment:
+      - JAVA_OPTS=-Xms512m -Xmx1024m
+      - WATCH_NAMESPACE=default
+    restart: unless-stopped
