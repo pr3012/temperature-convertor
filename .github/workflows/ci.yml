@@ -43,7 +43,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-build
-          path: target/*.jar
+          path: target/*.war
 
   docker:
     name: Build and Push Docker Image
