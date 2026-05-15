@@ -9,14 +9,10 @@ spec:
   - host: temperature-converter.local
     http:
       paths:
-      - path: /
+      - path: /temperature-converter
         pathType: Prefix
         backend:
           service:
             name: temperature-converter
             port:
               number: 8080
-  tls:
-  - hosts:
-    - temperature-converter.local
-    secretName: temperature-converter-tls
