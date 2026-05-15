@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: temperature-converter
-        image: my-jboss-images/pr3012/temp-con:v3
-        imagePullPolicy: IfNotPresent
+        image: asia-south1-docker.pkg.dev/project-0d94d8bf-842c-4e18-818/my-jboss-images/temp-con:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         - containerPort: 8443
@@ -37,20 +37,3 @@ spec:
           initialDelaySeconds: 60
           periodSeconds: 20
       terminationGracePeriodSeconds: 30
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: temperature-converter
-spec:
-  selector:
-    app: temperature-converter
-  ports:
-  - name: http
-    port: 8080
-    targetPort: 8080
-  - name: https
-    port: 8443
-    targetPort: 8443
-  type: ClusterIP
